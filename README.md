@@ -6,8 +6,8 @@
 
 #### main features:
 - work recursively up to 50 nested objects/arrays
-- handling \DateTime objects
-- implement Java style naming convention.
+- handling \DateTime objects 
+- support for camelCase and snake_case naming convention.
 
 <a name="installation"></a>
 ## Installation
@@ -17,34 +17,34 @@ Add Serializer to your `composer.json` file.
 ```json
 {
   "require": {
-    "encjacom/serializer": "~1.2"
+    "itav/serializer": "~2.0"
   }
 }
 ```
 or simply  fire up on terminal:
 ```bash
-composer require encjacom/serializer
+composer require itav/serializer
 ```
 
 Then at the top of your PHP script require the autoloader:
 
 ```bash
-require 'vendor/autoload.php';
+require_one 'vendor/autoload.php';
 ```                                 
 <a name="quick_start"></a>
 ## Quick Start
 
 Php Serializer allows you to switch between: 
-####objects --- arrays --- json, xml
+####objects --- arrays --- json
 
 ```php
 <?php
 
-use iPresso\Component\Serializer\Serializer;
+use Itav\Component\Serializer\Factory;
 
-require_once '../vendor/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
 
-$serializer = new Serializer();
+$serializer = Factory::create();
 
 class Car
 {
@@ -71,11 +71,11 @@ $car = new Car();
 $car->setParts([new Part(), new Part(), new Part()]);
 
 $array = $serializer->normalize($car);
-$json = json_encode($array);
+$json = $serializer->serialize($car);
 
 ```
 
-and also in reverse direction: 
+and reverse: 
 ####json --- arrays --- objects
 
 ```php
@@ -102,8 +102,6 @@ $json = <<<JSON
 }
 JSON;
 
-//$array = json_decode($json, true);
-
 $array = [
     'model' => 'MyModel',
     'color' => 'red',
@@ -124,4 +122,5 @@ $array = [
 ];
 
 $car = $serializer->denormalize($array, Car::class);
+$car = $serializer->unserialize($json, Car::class);
 ```
