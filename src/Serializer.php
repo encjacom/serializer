@@ -1,6 +1,6 @@
 <?php
 
-namespace Itav\Component\Serializer;
+namespace iPresso\Component\Serializer;
 
 class Serializer
 {
@@ -347,7 +347,7 @@ class Serializer
      * @param $type
      * @param $val
      * @return mixed
-     * @throws \Itav\Component\Serializer\SerializerException
+     * @throws \iPresso\Component\Serializer\SerializerException
      */
     private function generateValue($type, $val)
     {

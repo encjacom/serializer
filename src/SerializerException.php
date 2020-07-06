@@ -6,7 +6,7 @@
  * Time: 13:51
  */
 
-namespace Itav\Component\Serializer;
+namespace iPresso\Component\Serializer;
 
 class SerializerException extends \Exception
 {

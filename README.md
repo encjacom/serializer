@@ -17,13 +17,13 @@ Add Serializer to your `composer.json` file.
 ```json
 {
   "require": {
-    "itav/serializer": "~1.2"
+    "encjacom/serializer": "~1.2"
   }
 }
 ```
 or simply  fire up on terminal:
 ```bash
-composer require itav/serializer
+composer require encjacom/serializer
 ```
 
 Then at the top of your PHP script require the autoloader:
@@ -40,7 +40,7 @@ Php Serializer allows you to switch between:
 ```php
 <?php
 
-use Itav\Component\Serializer\Serializer;
+use iPresso\Component\Serializer\Serializer;
 
 require_once '../vendor/autoload.php';
 
