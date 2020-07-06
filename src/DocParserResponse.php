@@ -1,6 +1,6 @@
 <?php
 
-namespace Itav\Component\Serializer;
+namespace iPresso\Component\Serializer;
 
 class DocParserResponse
 {
