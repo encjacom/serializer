@@ -3,7 +3,6 @@
 
 * [Installation](#installation)
 * [Quick Start](#quick_start)
-* [How to Contribute](#contribute)
 
 #### main features:
 - work recursively up to 50 nested objects/arrays
@@ -126,8 +125,3 @@ $array = [
 
 $car = $serializer->denormalize($array, Car::class);
 ```
-
-
- <a name="contribute"></a>
- ## How to Contribute
- write to me: sylwester7799@gmail.com
