@@ -229,7 +229,7 @@ class Serializer
                 }
                 $value = $temp;
             } else if (is_object($value)) {
-                if (!$getter && $value instanceof \DateTime) {
+                if (!$getter && $value instanceof \DateTimeInterface) {
                     $value = $value->format('Y-m-d H:i:s');
                 } else {
                     $parseDoc = $this->parseDoc($property->getDocComment(), $reflection, true);
@@ -359,7 +359,11 @@ class Serializer
             return (bool)$val;
         }
 
-        if ('DateTime' === ltrim($type, '\\')) {
+        if ('float' === $type) {
+            return (float)$val;
+        }
+
+        if (in_array(ltrim($type, '\\'), ['DateTime', 'DateTimeInterface'], true)) {
             try {
                 return new \DateTime($val);
             } catch (\Exception $e) {
@@ -387,7 +391,10 @@ class Serializer
             'string',
             'bool',
             'boolean',
+            'float',
+            'double',
             'datetime',
+            'datetimeinterface',
             'array',
             'null'
         ])) {
